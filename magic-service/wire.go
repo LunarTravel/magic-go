@@ -1,12 +1,12 @@
 package main
 
 import (
-	"magic-go/internal/config"
-	"magic-go/internal/config/autoload"
-	"magic-go/internal/application/kernel"
-	"magic-go/internal/interfaces/http/handler"
-	mysqlp "magic-go/internal/infrastructure/persistence/mysql"
-	redisp "magic-go/internal/infrastructure/persistence/redis"
+	"magic-service/internal/config"
+	"magic-service/internal/config/autoload"
+	"magic-service/internal/application/kernel"
+	"magic-service/internal/interfaces/http/handler"
+	mysqlp "magic-service/internal/infrastructure/persistence/mysql"
+	redisp "magic-service/internal/infrastructure/persistence/redis"
 
 	"go.uber.org/zap"
 )

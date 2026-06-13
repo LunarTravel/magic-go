@@ -6,8 +6,8 @@ import (
 
 	"github.com/gin-gonic/gin"
 
-	"magic-go/internal/application/kernel"
-	"magic-go/internal/interfaces/dto"
+	"magic-service/internal/application/kernel"
+	"magic-service/internal/interfaces/dto"
 )
 
 // HealthHandler 健康检查处理器。

@@ -9,7 +9,7 @@ RUN go mod download
 
 # 编译
 COPY . .
-RUN CGO_ENABLED=0 GOOS=linux go build -ldflags="-s -w" -o /bin/magic-go .
+RUN CGO_ENABLED=0 GOOS=linux go build -ldflags="-s -w" -o /bin/magic-service .
 
 # Runtime stage
 FROM alpine:3.20
@@ -18,9 +18,9 @@ RUN apk --no-cache add ca-certificates tzdata
 ENV TZ=Asia/Shanghai
 
 WORKDIR /app
-COPY --from=builder /bin/magic-go .
+COPY --from=builder /bin/magic-service .
 COPY configs/ configs/
 
 EXPOSE 9501
 
-ENTRYPOINT ["./magic-go"]
+ENTRYPOINT ["./magic-service"]

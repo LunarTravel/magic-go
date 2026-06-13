@@ -11,7 +11,7 @@ import (
 	"github.com/mitchellh/mapstructure"
 	"gopkg.in/yaml.v3"
 
-	"magic-go/internal/config/autoload"
+	"magic-service/internal/config/autoload"
 )
 
 // New 通过合并文件配置与环境变量创建配置。

@@ -8,7 +8,7 @@ import (
 
 	_ "github.com/go-sql-driver/mysql"
 
-	"magic-go/internal/config/autoload"
+	"magic-service/internal/config/autoload"
 	"go.uber.org/zap"
 )
 

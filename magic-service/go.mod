@@ -1,4 +1,4 @@
-module magic-go
+module magic-service
 
 go 1.25.0
 

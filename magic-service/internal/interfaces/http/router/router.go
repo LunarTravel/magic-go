@@ -7,7 +7,7 @@ import (
 
 	"github.com/gin-gonic/gin"
 
-	"magic-go/internal/interfaces/http/handler"
+	"magic-service/internal/interfaces/http/handler"
 )
 
 // Dependencies 保存路由初始化所需的依赖。

@@ -7,7 +7,7 @@ import (
 	"go.uber.org/zap"
 	"go.uber.org/zap/zapcore"
 
-	"magic-go/internal/config/autoload"
+	"magic-service/internal/config/autoload"
 )
 
 // SugaredLogger 是 zap.SugaredLogger 的类型别名，方便全局使用。

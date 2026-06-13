@@ -8,7 +8,7 @@ import (
 	"github.com/redis/go-redis/v9"
 	"go.uber.org/zap"
 
-	"magic-go/internal/config/autoload"
+	"magic-service/internal/config/autoload"
 )
 
 // Client Redis 客户端封装。

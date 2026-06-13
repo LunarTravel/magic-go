@@ -2,11 +2,11 @@
 package infra
 
 import (
-	"magic-go/internal/config"
-	"magic-go/internal/config/autoload"
-	"magic-go/internal/infrastructure/logging"
-	mysqlp "magic-go/internal/infrastructure/persistence/mysql"
-	redisp "magic-go/internal/infrastructure/persistence/redis"
+	"magic-service/internal/config"
+	"magic-service/internal/config/autoload"
+	"magic-service/internal/infrastructure/logging"
+	mysqlp "magic-service/internal/infrastructure/persistence/mysql"
+	redisp "magic-service/internal/infrastructure/persistence/redis"
 
 	"go.uber.org/zap"
 )

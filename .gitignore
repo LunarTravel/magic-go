@@ -1,13 +1,13 @@
 # ====================
-# Go 编译产物
+# Go 编译产物（magic-service）
 # ====================
-# 主二进制（项目自身编译输出）
-/magic-go
-/magic-go.exe
-/bin/
-/dist/
-/build/
-/out/
+# 各组件编译输出的二进制
+/magic-service/magic-service
+/magic-service/magic-service.exe
+/magic-service/bin/
+/magic-service/dist/
+/magic-service/build/
+/magic-service/out/
 
 # Go 测试与覆盖文件
 *.test
@@ -19,6 +19,7 @@ coverage.html
 coverage.out
 
 # 依赖目录
+/magic-service/vendor/
 /vendor/
 
 # ====================
@@ -30,12 +31,12 @@ coverage.out
 !.env.example
 
 # 本地覆盖配置（含真实数据库密码）
-configs/config.local.yaml
-configs/config.local.yml
-configs/config.*.local.yaml
-configs/config.dev.yaml
-configs/config.prod.yaml
-configs/secrets.yaml
+**/config.local.yaml
+**/config.local.yml
+**/config.*.local.yaml
+**/config.dev.yaml
+**/config.prod.yaml
+**/secrets.yaml
 
 # 密钥、证书
 *.pem
@@ -50,11 +51,30 @@ secrets/
 # ====================
 # 运行时产物
 # ====================
-/runtime/
-/logs/
-/storage/
-/tmp/
+**/runtime/
+**/logs/
+**/storage/
+**/tmp/
 *.log
+
+# ====================
+# Python（python-agent 预留）
+# ====================
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+.python-version
+
+# ====================
+# 前端（frontend 预留）
+# ====================
+**/node_modules/
+**/dist/
+**/.next/
+**/.nuxt/
+**/.turbo/
 
 # ====================
 # IDE / 编辑器
@@ -75,12 +95,6 @@ secrets/
 ._*
 Thumbs.db
 desktop.ini
-
-# ====================
-# 依赖管理
-# ====================
-glide.lock
-composer.lock
 
 # ====================
 # 文档生成

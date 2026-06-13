@@ -2,11 +2,11 @@
 package app
 
 import (
-	chatservice "magic-go/internal/application/chat/service"
-	agentservice "magic-go/internal/application/agent/service"
-	contactservice "magic-go/internal/application/contact/service"
-	"magic-go/internal/application/kernel"
-	"magic-go/internal/interfaces/http/handler"
+	chatservice "magic-service/internal/application/chat/service"
+	agentservice "magic-service/internal/application/agent/service"
+	contactservice "magic-service/internal/application/contact/service"
+	"magic-service/internal/application/kernel"
+	"magic-service/internal/interfaces/http/handler"
 )
 
 // ProvideHealthService 提供健康检查服务。

@@ -8,10 +8,10 @@ import (
 	"runtime/debug"
 	"time"
 
-	"magic-go/internal/infrastructure/appruntime"
-	"magic-go/internal/infrastructure/logging"
-	httpserver "magic-go/internal/interfaces/http"
-	"magic-go/internal/pkg/logkey"
+	"magic-service/internal/infrastructure/appruntime"
+	"magic-service/internal/infrastructure/logging"
+	httpserver "magic-service/internal/interfaces/http"
+	"magic-service/internal/pkg/logkey"
 
 	"go.uber.org/zap"
 )

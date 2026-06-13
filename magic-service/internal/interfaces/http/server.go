@@ -14,11 +14,11 @@ import (
 	"github.com/gin-gonic/gin"
 	"go.uber.org/zap"
 
-	"magic-go/internal/config/autoload"
-	"magic-go/internal/constants"
-	"magic-go/internal/interfaces/http/handler"
-	"magic-go/internal/interfaces/http/middleware"
-	"magic-go/internal/interfaces/http/router"
+	"magic-service/internal/config/autoload"
+	"magic-service/internal/constants"
+	"magic-service/internal/interfaces/http/handler"
+	"magic-service/internal/interfaces/http/middleware"
+	"magic-service/internal/interfaces/http/router"
 )
 
 // Server 表示 HTTP 服务。
