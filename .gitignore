@@ -1,0 +1,89 @@
+# ====================
+# Go 编译产物
+# ====================
+# 主二进制（项目自身编译输出）
+/magic-go
+/magic-go.exe
+/bin/
+/dist/
+/build/
+/out/
+
+# Go 测试与覆盖文件
+*.test
+*.out
+*.prof
+*.pprof
+coverage.txt
+coverage.html
+coverage.out
+
+# 依赖目录
+/vendor/
+
+# ====================
+# 私密 / 敏感配置文件
+# ====================
+# 环境变量文件（含密码、密钥）
+.env
+.env.*
+!.env.example
+
+# 本地覆盖配置（含真实数据库密码）
+configs/config.local.yaml
+configs/config.local.yml
+configs/config.*.local.yaml
+configs/config.dev.yaml
+configs/config.prod.yaml
+configs/secrets.yaml
+
+# 密钥、证书
+*.pem
+*.key
+*.crt
+*.p12
+*.pfx
+id_rsa
+id_rsa.pub
+secrets/
+
+# ====================
+# 运行时产物
+# ====================
+/runtime/
+/logs/
+/storage/
+/tmp/
+*.log
+
+# ====================
+# IDE / 编辑器
+# ====================
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+*.sublime-project
+*.sublime-workspace
+
+# ====================
+# 操作系统
+# ====================
+.DS_Store
+.DS_Store?
+._*
+Thumbs.db
+desktop.ini
+
+# ====================
+# 依赖管理
+# ====================
+glide.lock
+composer.lock
+
+# ====================
+# 文档生成
+# ====================
+/site/
+docs/site/
