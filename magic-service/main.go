@@ -8,6 +8,7 @@ import (
 	"runtime/debug"
 	"time"
 
+	"magic-service/internal/config/autoload"
 	"magic-service/internal/infrastructure/appruntime"
 	"magic-service/internal/infrastructure/logging"
 	httpserver "magic-service/internal/interfaces/http"
@@ -26,14 +27,17 @@ func main() {
 	ctx := context.Background()
 	processStartedAt := time.Now()
 
-	// 初始化主 logger
-	logger := logging.New()
-	defer recoverAndExit(ctx, logger, "magic-go main goroutine panic", processStartedAt)
+	// 先加载配置（从 configs/config.yaml + .env / 环境变量）
+	cfg := configNew()
+
+	// 根据配置初始化主 logger（level/format 受 .env 控制）
+	logger := logging.NewFromConfig(cfg.Logging)
+	defer recoverAndExit(ctx, logger, "magic-service main goroutine panic", processStartedAt)
 	logProcessStarting(ctx, logger, processStartedAt)
 
 	// 初始化应用
 	initStartedAt := time.Now()
-	server, cleanup, err := initializeApplication(logger)
+	server, cleanup, err := initializeApplication(cfg, logger)
 	if err != nil {
 		logger.Fatalw("Failed to initialize application",
 			logkey.Error, err,
@@ -77,10 +81,7 @@ func main() {
 }
 
 // initializeApplication 初始化所有依赖并返回 HTTP 服务器。
-func initializeApplication(logger *zap.SugaredLogger) (*httpserver.Server, func(), error) {
-	// 加载配置
-	cfg := configNew()
-
+func initializeApplication(cfg *autoload.Config, logger *zap.SugaredLogger) (*httpserver.Server, func(), error) {
 	// 组装基础设施
 	mysqlClient, err := provideMySQL(cfg, logger)
 	if err != nil {

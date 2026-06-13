@@ -93,16 +93,21 @@ func expandEnvPlaceholders(s string) string {
 	return s
 }
 
+// loadDotEnvIfPresent 尝试从 .env 文件加载环境变量。
+// 查找顺序：当前工作目录 → 上一级目录（仓库根）。
+// 注意：godotenv.Load 不会覆盖已存在的环境变量，
+// 因此生产环境（K8s/Docker）通过环境注入的配置优先级最高，.env 仅用于本地开发。
 func loadDotEnvIfPresent() {
-	candidates := []string{".env"}
+	var candidates []string
 	if cwd, err := os.Getwd(); err == nil {
 		candidates = append(candidates,
-			filepath.Join(cwd, ".env"),
+			filepath.Join(cwd, ".env"),            // 当前目录（magic-service/）
+			filepath.Join(cwd, "..", ".env"),      // 上一级（仓库根）
 		)
 	}
 	for _, p := range candidates {
-		if _, err := os.Stat(p); err == nil {
-			_ = godotenv.Load(p)
+		if _, err := os.Stat(filepath.Clean(p)); err == nil {
+			_ = godotenv.Load(filepath.Clean(p))
 			break
 		}
 	}

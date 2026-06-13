@@ -1,14 +1,15 @@
 # magic-service 服务配置
+# 所有变量从 .env / 环境变量读取，格式 ${VAR:-默认值}
 server:
-  port: 9501
-  mode: debug          # debug | release | test
-  base_path: ""
-  env: local           # local | dev | staging | production
-  pprof_enabled: true
+  port: ${SERVER_PORT:-9501}
+  mode: ${SERVER_MODE:-debug}        # debug | release | test
+  base_path: "${SERVER_BASE_PATH:-}"
+  env: ${APP_ENV:-local}             # local | dev | staging | production
+  pprof_enabled: ${SERVER_PPROF_ENABLED:-true}
 
 logging:
-  level: info           # debug | info | warn | error
-  format: json          # json | text
+  level: ${LOG_LEVEL:-info}          # debug | info | warn | error
+  format: ${LOG_FORMAT:-json}        # json | text
 
 mysql:
   host: "${MYSQL_HOST:-127.0.0.1}"
@@ -25,4 +26,4 @@ redis:
   host: "${REDIS_HOST:-127.0.0.1}"
   port: ${REDIS_PORT:-6379}
   password: "${REDIS_PASSWORD:-}"
-  db: 0
+  db: ${REDIS_DB:-0}
